@@ -45,14 +45,14 @@ It combines a customer-facing appointment experience with administrative tools f
 
 ## 📸 Screenshots
 
-### Beauty Services & Booking
-Add screenshot here.
+### Beauty Services & Homepage
+![LUMÉA Beauty Salon Homepage](lumea-homepage-services.png)
 
-### Appointment Selection
-Add screenshot here.
+### Appointment Booking
+![LUMÉA Appointment Booking](lumea-booking-appointment.png)
 
-### Staff Dashboard
-Add screenshot here.
+### Staff & Admin Dashboard
+![LUMÉA Admin Dashboard](lumea-admin-dashboard.png)
 
 ## 📂 Project Structure
 
