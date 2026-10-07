@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMÉA Beauty Salon | Book Your Beauty Appointment</title>
+  <meta name="description" content="LUMÉA Beauty Salon appointment booking and salon management web app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-container">
+    <button class="brand" id="brand-home"><span class="brand-mark">L</span><span><b>LUMÉA</b><small>BEAUTY SALON</small></span></button>
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-view="services-view"><i class="fa-solid fa-spa"></i> Services</button>
+      <button class="nav-btn" data-view="bookings-view"><i class="fa-regular fa-calendar-check"></i> My Booking <span id="booking-dot" class="dot hidden"></span></button>
+      <button class="nav-btn" data-view="admin-view"><i class="fa-solid fa-user-shield"></i> Staff</button>
+    </nav>
+    <div class="nav-actions">
+      <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search-input" placeholder="Search services..."></div>
+      <button class="btn btn-primary" id="header-book-btn"><i class="fa-regular fa-calendar-plus"></i> Book Now</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="services-view" class="view active">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">YOUR BEAUTY, YOUR MOMENT</span>
+      <h1>Feel beautiful.<br><span>Be unforgettable.</span></h1>
+      <p>Premium hair, nail, lash, brow and skincare services tailored around you. Choose your treatment, specialist and perfect time in just a few clicks.</p>
+      <div class="hero-actions"><button class="btn btn-primary btn-lg" id="hero-book-btn">Book an Appointment</button><button class="btn btn-soft btn-lg" id="explore-btn">Explore Services</button></div>
+      <div class="trust-row"><span><b>4.9</b> ★ client rating</span><span><b>8+</b> beauty specialists</span><span><b>1,200+</b> happy clients</span></div>
+    </div>
+    <div class="hero-art">
+      <div class="beauty-card big"><span>✦</span><h3>Glow begins here</h3><p>Luxury treatments, personalized care.</p></div>
+      <div class="floating-card"><i class="fa-solid fa-wand-magic-sparkles"></i><div><b>Next opening</b><small>Today · 2:30 PM</small></div></div>
+    </div>
+  </section>
+
+  <section class="container services-section" id="services-section">
+    <div class="section-head"><div><span class="eyebrow">OUR SERVICES</span><h2>Choose your beauty ritual</h2></div><span id="service-count" class="muted"></span></div>
+    <div id="category-pills" class="pills"></div>
+    <div id="services-grid" class="services-grid"></div>
+    <div id="empty-services" class="empty hidden"><i class="fa-solid fa-spa"></i><h3>No services found</h3><p>Try another search or category.</p></div>
+  </section>
+
+  <section class="specialists container">
+    <div class="section-head"><div><span class="eyebrow">MEET THE TEAM</span><h2>Beauty specialists you'll love</h2></div></div>
+    <div id="specialists-grid" class="specialists-grid"></div>
+  </section>
+</section>
+
+<section id="bookings-view" class="view">
+  <div class="container page-pad">
+    <div class="page-title"><span class="eyebrow">APPOINTMENT STATUS</span><h2>My Booking</h2><p>Review your appointment details and current status.</p></div>
+    <div id="booking-status-card" class="booking-status card"></div>
+  </div>
+</section>
+
+<section id="admin-view" class="view">
+  <div id="admin-login" class="login-wrap">
+    <div class="card login-card"><div class="login-icon"><i class="fa-solid fa-sparkles"></i></div><h2>Salon Staff Portal</h2><p>Manage appointments, services and specialists.</p>
+      <form id="login-form"><label>Email</label><input id="login-email" class="input" type="email" value="admin@lumea.com" required><label>Password</label><input id="login-password" class="input" type="password" value="admin123" required><div class="demo">Demo: admin@lumea.com / admin123</div><button class="btn btn-primary full" type="submit">Sign In</button></form>
+    </div>
+  </div>
+  <div id="admin-dashboard" class="container page-pad hidden">
+    <div class="admin-top card"><div><span class="eyebrow">SALON DASHBOARD</span><h2>Welcome, Salon Manager</h2></div><button id="logout-btn" class="btn btn-soft"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button></div>
+    <div class="kpi-grid"><div class="kpi card"><i class="fa-regular fa-calendar-check"></i><div><b id="kpi-appointments">0</b><span>Appointments</span></div></div><div class="kpi card"><i class="fa-solid fa-coins"></i><div><b id="kpi-revenue">RM0</b><span>Revenue</span></div></div><div class="kpi card"><i class="fa-regular fa-clock"></i><div><b id="kpi-upcoming">0</b><span>Upcoming</span></div></div><div class="kpi card"><i class="fa-solid fa-check"></i><div><b id="kpi-completed">0</b><span>Completed</span></div></div></div>
+    <div class="admin-tabs"><button class="admin-tab active" data-tab="appointments">Appointments</button><button class="admin-tab" data-tab="services">Services</button><button class="admin-tab" data-tab="staff">Staff</button></div>
+    <div id="admin-pane" class="admin-pane"></div>
+  </div>
+</section>
+</main>
+
+<div id="booking-modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" id="close-booking"><i class="fa-solid fa-xmark"></i></button>
+    <div class="booking-modal-head"><span class="eyebrow">BOOK YOUR VISIT</span><h2 id="modal-service-name">Beauty Appointment</h2><p id="modal-service-meta"></p></div>
+    <div class="booking-steps"><span class="step active" data-step="1">1 Service</span><span class="step" data-step="2">2 Specialist</span><span class="step" data-step="3">3 Date & Time</span><span class="step" data-step="4">4 Details</span></div>
+    <div id="step-1" class="step-pane active"><h3>Selected service</h3><div id="selected-service-card"></div><label>Optional add-ons</label><div id="addon-list" class="option-grid"></div></div>
+    <div id="step-2" class="step-pane"><h3>Choose your specialist</h3><div id="stylist-options" class="stylist-options"></div></div>
+    <div id="step-3" class="step-pane"><h3>Choose date & time</h3><label>Date</label><input type="date" id="booking-date" class="input"><label>Available times</label><div id="time-options" class="time-grid"></div></div>
+    <div id="step-4" class="step-pane"><h3>Your details</h3><div class="form-grid"><div><label>Full name</label><input id="client-name" class="input" placeholder="Your name"></div><div><label>Phone</label><input id="client-phone" class="input" placeholder="Phone number"></div><div class="span-2"><label>Email</label><input id="client-email" class="input" type="email" placeholder="you@example.com"></div><div class="span-2"><label>Notes (optional)</label><textarea id="client-notes" class="input" rows="3" placeholder="Any preferences or notes for your specialist?"></textarea></div></div></div>
+    <div class="modal-footer"><button id="booking-back" class="btn btn-soft hidden">Back</button><div class="booking-total"><small>Estimated total</small><b id="booking-total">RM0</b></div><button id="booking-next" class="btn btn-primary">Continue</button></div>
+  </div>
+</div>
+
+<div id="toast-wrap" class="toast-wrap"></div>
+<script src="app.js"></script>
+</body>
+</html>
